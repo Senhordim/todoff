@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:todoff/modules/home/home.dart';
+
+import 'routes/pages.routes.dart';
 
 void main() {
   runApp(Todoff());
@@ -7,12 +11,14 @@ void main() {
 class Todoff extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Container(),
+    return GetMaterialApp(
+      title: 'Off Todo App',
+      home: HomeView(),
+      initialBinding: HomeBinding(),
+      debugShowCheckedModeBanner: false,
+      enableLog: true,
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
     );
   }
 }
